@@ -236,7 +236,7 @@ class DataprocClusterCreateOperator(BaseOperator):
 
     def _get_cluster_state(self, service):
         cluster = self._get_cluster(service)
-        if 'status' in cluster:
+        if cluster and 'status' in cluster:
             return cluster['status']['state']
         else:
             return None
